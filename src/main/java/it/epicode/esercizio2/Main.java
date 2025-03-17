@@ -1,11 +1,14 @@
 package it.epicode.esercizio2;
 
 import it.epicode.esercizio2.exceptions.DivideBy0Exception;
+import org.slf4j.Logger;
 
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
+        Logger logger = org.slf4j.LoggerFactory.getLogger(Main.class);
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.println("scegli modalità");
@@ -40,7 +43,7 @@ public class Main {
                 throw new Exception("Modalità non valida");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            logger.error("Errore: " + e.getMessage());
         }
 
     }
